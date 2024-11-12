@@ -563,7 +563,7 @@ try:
         def verify_config():
             # Verify encrypted config is loaded
             c.sendline('show config commands | cat')
-            c.expect('set system option performance \'latency\'')
+            c.expect('set system option performance \'network-latency\'')
             c.expect('set system option reboot-on-panic')
             c.expect(op_mode_prompt)
 
@@ -600,7 +600,7 @@ try:
         log.info('Adding nodes for encrypted config test')
         c.sendline('configure')
         c.expect(cfg_mode_prompt)
-        c.sendline('set system option performance latency')
+        c.sendline('set system option performance network-latency')
         c.expect(cfg_mode_prompt)
         c.sendline('set system option reboot-on-panic')
         c.expect(cfg_mode_prompt)
